@@ -1,0 +1,22 @@
+// security.policy (for server)
+grant {
+    permission java.security.AllPermission;
+};
+
+// client.policy (for client)
+grant {
+    // RMI permissions
+    permission java.net.SocketPermission "*:1024-65535", "connect,accept,resolve";
+    permission java.net.SocketPermission "*:80", "connect";
+    permission java.net.SocketPermission "*:443", "connect";
+    
+    // Allow downloading classes from HTTP server
+    permission java.io.FilePermission "<<ALL FILES>>", "read";
+    
+    // UI permissions
+    permission java.awt.AWTPermission "showWindowWithoutWarningBanner";
+    permission java.awt.AWTPermission "accessClipboard";
+    
+    // Property permissions
+    permission java.util.PropertyPermission "*", "read,write";
+};
