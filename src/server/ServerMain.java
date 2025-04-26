@@ -10,6 +10,7 @@ public class ServerMain {
 
     private static final int RMI_PORT = 1099;
     private static final String SERVICE_NAME = "GameService";
+    
     private static final int MAX_PLAYERS = 10;
 
     public static void main(String[] args) {
